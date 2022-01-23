@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-public class TacoBellMenu implements MenuParser {
+public class TacoBellMenuParser implements MenuParser {
 	private static final String url = "https://www.tacobell.com/food/new";
 
 	public Object getMenuItems() throws IOException {
