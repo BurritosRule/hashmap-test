@@ -15,8 +15,8 @@ public class TacoBellMenuParser implements MenuParser {
 		// Document tacoBell = Jsoup.connect(URL).get();
 		// return tacoBell;
 
-		MenuItem menuItem1 = new MenuItem("Taco", 1.99);
-		MenuItem menuItem2 = new MenuItem("Burrito", 3.99);
+		MenuItem menuItem1 = new MenuItem("Taco", "1.99");
+		MenuItem menuItem2 = new MenuItem("Burrito", "3.99");
 
 		List<MenuItem> listOfMenuItems = new ArrayList<MenuItem>();
 		listOfMenuItems.add(menuItem1);

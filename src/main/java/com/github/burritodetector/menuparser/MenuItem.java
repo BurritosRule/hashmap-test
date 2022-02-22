@@ -1,19 +1,26 @@
 package com.github.burritodetector.menuparser;
 
-public class MenuItem {
-	String menuItemName;
-	Double menuItemPrice;
+import java.math.BigDecimal;
 
-	public MenuItem(String menuItemName, Double menuItemPrice) {
-		this.menuItemName = menuItemName;
-		this.menuItemPrice = menuItemPrice;
+public class MenuItem {
+	private String menuItemName;
+	private BigDecimal menuItemPrice;
+
+	public MenuItem(String menuItemName, String menuItemPrice) {
+		if (menuItemName != null && menuItemPrice != null) {
+			this.menuItemName = menuItemName;
+			this.menuItemPrice = new BigDecimal(menuItemPrice);
+		} else {
+			throw new IllegalArgumentException("Null value");
+		}
+
 	}
 
 	public String getMenuItemName() {
 		return menuItemName;
 	}
 
-	public Double getMenuItemPrice() {
+	public BigDecimal getMenuItemPrice() {
 		return menuItemPrice;
 	}
 
