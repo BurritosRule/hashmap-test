@@ -1,7 +1,8 @@
 package com.github.burritodetector.menuparser;
 
 import java.io.IOException;
+import java.util.List;
 
 public interface MenuParser {
-	public Object getMenuItems() throws IOException;
+	public List<MenuItem> getMenuItems() throws IOException;
 }

@@ -1,6 +1,7 @@
 package com.github.burritodetector.menuparser;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +16,11 @@ public class TacoBellMenuParser implements MenuParser {
 		// Document tacoBell = Jsoup.connect(URL).get();
 		// return tacoBell;
 
-		MenuItem menuItem1 = new MenuItem("Taco", "1.99");
-		MenuItem menuItem2 = new MenuItem("Burrito", "3.99");
+		BigDecimal menuItem1Price = new BigDecimal("1.99");
+		BigDecimal menuItem2Price = new BigDecimal("3.99");
+
+		MenuItem menuItem1 = new MenuItem("Taco", menuItem1Price);
+		MenuItem menuItem2 = new MenuItem("Burrito", menuItem2Price);
 
 		List<MenuItem> listOfMenuItems = new ArrayList<MenuItem>();
 		listOfMenuItems.add(menuItem1);
