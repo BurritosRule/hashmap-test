@@ -16,11 +16,8 @@ public class TacoBellMenuParser implements MenuParser {
 		// Document tacoBell = Jsoup.connect(URL).get();
 		// return tacoBell;
 
-		BigDecimal menuItem1Price = new BigDecimal("1.99");
-		BigDecimal menuItem2Price = new BigDecimal("3.99");
-
-		MenuItem menuItem1 = new MenuItem("Taco", menuItem1Price);
-		MenuItem menuItem2 = new MenuItem("Burrito", menuItem2Price);
+		MenuItem menuItem1 = new MenuItem("Taco", new BigDecimal("1.99"));
+		MenuItem menuItem2 = new MenuItem("Burrito", new BigDecimal("3.99"));
 
 		List<MenuItem> listOfMenuItems = new ArrayList<MenuItem>();
 		listOfMenuItems.add(menuItem1);

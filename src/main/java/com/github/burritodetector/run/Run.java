@@ -1,8 +1,8 @@
 package com.github.burritodetector.run;
 
 import java.io.IOException;
-//import java.util.Collections;
-//import java.util.List;
+import java.util.Collections;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +17,7 @@ public class Run {
 	public static void main(String[] args) throws IOException {
 		MenuParser tacoBellMenu = new TacoBellMenuParser();
 
-//		List<MenuItem> menu = tacoBellMenu.getMenuItems();
+		List<MenuItem> menu = tacoBellMenu.getMenuItems();
 
 //		for (String arg : args) {
 //			if (arg.equals("--sort") || arg.equals("-s")) {
@@ -28,11 +28,14 @@ public class Run {
 //				Collections.sort(tacoBellMenu.getMenuItems());
 //			}
 //		}
+		
+		// Sortbyname cannot be resolved to a type
+		Collections.sort(menu, new Sortbyname());
 
 		StringBuilder menuStr = new StringBuilder();
 
 		for (MenuItem menuItem : tacoBellMenu.getMenuItems()) {
-			menuStr.append(menuItem + "\n");
+			menuStr.append(menuItem).append("\n");
 		}
 
 		System.out.println(menuStr);
