@@ -17,29 +17,28 @@ public class Run {
 	public static void main(String[] args) throws IOException {
 		MenuParser tacoBellMenu = new TacoBellMenuParser();
 
-		List<MenuItem> menu = tacoBellMenu.getMenuItems();
+		String sortMethod = "default";
+		for (String arg : args) {
+			if (arg.equals("--sortbyname") || arg.equals("-sn")) {
+				sortMethod = "sortbyname";
+			}
 
-//		for (String arg : args) {
-//			if (arg.equals("--sort") || arg.equals("-s")) {
-		// The method sort(List<T>) in the type Collections is not applicable for the
-		// arguments (List<MenuItem>)
-		// Implement the employee class with a Comparable Interface or Comparator
-		// Interface? https://www.theprogrammerguide.com/java/method-sort_list/
-//				Collections.sort(tacoBellMenu.getMenuItems());
-//			}
-//		}
-		
-		// Sortbyname cannot be resolved to a type
-		Collections.sort(menu, new Sortbyname());
+			if (arg.equals("--sortbyprice") || arg.equals("-sp")) {
+				sortMethod = "sortbyprice";
+			}
+		}
+
+//      Not currently using this
+//		List<MenuItem> menu = tacoBellMenu.getMenuItems(sortMethod);
 
 		StringBuilder menuStr = new StringBuilder();
 
-		for (MenuItem menuItem : tacoBellMenu.getMenuItems()) {
+		for (MenuItem menuItem : tacoBellMenu.getMenuItems(sortMethod)) {
 			menuStr.append(menuItem).append("\n");
 		}
 
 		System.out.println(menuStr);
-		LOGGER.info(tacoBellMenu.getMenuItems().toString());
+		LOGGER.info(tacoBellMenu.getMenuItems(sortMethod).toString());
 
 	}
 
