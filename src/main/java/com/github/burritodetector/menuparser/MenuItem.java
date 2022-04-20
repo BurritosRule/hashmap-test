@@ -36,15 +36,7 @@ public class MenuItem {
 	public String toString() {
 		return "Menu Item Name: " + this.getMenuItemName() + ", Menu Item Price: " + this.getMenuItemPrice();
 	}
-
-//	class Sortbyname implements Comparator<MenuItem> {
-//
-//		public int compare(MenuItem o1, MenuItem o2) {
-//			return o1.menuItemName.compareTo(o2.menuItemName);
-//		}
-//
-//	}
-
-// Internet says use this in Java 8 and above
-	Comparator<MenuItem> comparator = comparing(MenuItem::getMenuItemName, naturalOrder());
+	
+	public static final Comparator<MenuItem> NAME_COMPARATOR = comparing(MenuItem::getMenuItemName);
+	public static final Comparator<MenuItem> PRICE_COMPARATOR = comparing(MenuItem::getMenuItemPrice);
 }

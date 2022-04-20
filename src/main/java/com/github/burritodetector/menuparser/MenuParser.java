@@ -4,5 +4,5 @@ import java.io.IOException;
 import java.util.List;
 
 public interface MenuParser {
-	public List<MenuItem> getMenuItems(String sortMethod) throws IOException;
+	public List<MenuItem> getMenuItems() throws IOException;
 }
