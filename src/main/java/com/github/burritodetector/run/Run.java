@@ -55,12 +55,9 @@ public class Run {
 		}
 
 		StringBuilder menuStr = new StringBuilder();
-		Map<String, Object> map = new HashMap<>();
 		
 		for (MenuItem menuItem : menu) {
 			menuStr.append(menuItem).append("\n");
-			map.put("name", menuItem.getMenuItemName());
-			map.put("price", menuItem.getMenuItemPrice());
 		}
 
 		System.out.println(menuStr);
@@ -68,7 +65,7 @@ public class Run {
 		
 	    ObjectMapper mapper = new ObjectMapper();
 
-	    mapper.writeValue(Paths.get("menu.json").toFile(), map);
+	    mapper.writeValue(Paths.get("menu.json").toFile(), menu);
 
 	}
 

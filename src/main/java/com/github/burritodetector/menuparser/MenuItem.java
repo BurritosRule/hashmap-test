@@ -2,11 +2,16 @@ package com.github.burritodetector.menuparser;
 
 import java.math.BigDecimal;
 import java.util.Comparator;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import static java.util.Comparator.comparing;
 import static java.util.Comparator.naturalOrder;
 
 public class MenuItem {
+	@JsonProperty("name")
 	private String menuItemName;
+	@JsonProperty("price")
 	private BigDecimal menuItemPrice;
 
 	public MenuItem(String menuItemName, BigDecimal menuItemPrice) {
