@@ -18,16 +18,14 @@ import com.github.burritodetector.menuparser.TacoBellMenuParser;
 
 public class Run {
 	private static final Logger LOGGER = LoggerFactory.getLogger(Run.class);
-	
+
 	enum Sort {
-		  NAME,
-		  PRICE,
-		  DEFAULT
-		}
+		NAME, PRICE, DEFAULT
+	}
 
 	public static void main(String[] args) throws IOException {
 		MenuParser tacoBellMenu = new TacoBellMenuParser();
-	
+
 		Sort sortMethod = Sort.DEFAULT;
 		for (String arg : args) {
 			if (arg.equals("--sort-by-name") || arg.equals("-sn")) {
@@ -40,32 +38,29 @@ public class Run {
 		}
 
 		List<MenuItem> menu = tacoBellMenu.getMenuItems();
-		
+
+		// Research: https://docs.oracle.com/en/java/javase/18/language/pattern-matching-switch-expressions-and-statements.html
 		switch (sortMethod) {
-		case NAME:
-			menu.sort(MenuItem.NAME_COMPARATOR);
-			break;
-		case PRICE:
-			menu.sort(MenuItem.PRICE_COMPARATOR);
-			break;
-		case DEFAULT:
-			break;
-		default:
-			throw new IllegalArgumentException("Error: Invalid sort option");
+			case NAME -> menu.sort(MenuItem.NAME_COMPARATOR);
+			case PRICE -> menu.sort(MenuItem.PRICE_COMPARATOR);
+			case DEFAULT -> {
+				break;
+			}
+			default -> throw new IllegalArgumentException("Error: Invalid sort option");
 		}
 
 		StringBuilder menuStr = new StringBuilder();
-		
+
 		for (MenuItem menuItem : menu) {
 			menuStr.append(menuItem).append("\n");
 		}
 
 		System.out.println(menuStr);
 		LOGGER.info(tacoBellMenu.getMenuItems().toString());
-		
-	    ObjectMapper mapper = new ObjectMapper();
 
-	    mapper.writeValue(Paths.get("menu.json").toFile(), menu);
+		ObjectMapper mapper = new ObjectMapper();
+
+		mapper.writeValue(Paths.get("menu.json").toFile(), menu);
 
 	}
 

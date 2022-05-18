@@ -5,6 +5,8 @@ import java.util.Comparator;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import lombok.NonNull;
+
 import static java.util.Comparator.comparing;
 import static java.util.Comparator.naturalOrder;
 
@@ -14,15 +16,7 @@ public class MenuItem {
 	@JsonProperty("price")
 	private BigDecimal menuItemPrice;
 
-	public MenuItem(String menuItemName, BigDecimal menuItemPrice) {
-
-		if (menuItemName == null) {
-			throw new IllegalArgumentException("Error: menuItemName is null");
-		}
-
-		if (menuItemPrice == null) {
-			throw new IllegalArgumentException("Error: menuItemPrice is null");
-		}
+	public MenuItem(@NonNull String menuItemName, @NonNull BigDecimal menuItemPrice) {
 
 		this.menuItemName = menuItemName;
 		this.menuItemPrice = menuItemPrice;
@@ -41,7 +35,7 @@ public class MenuItem {
 	public String toString() {
 		return "Menu Item Name: " + this.getMenuItemName() + ", Menu Item Price: " + this.getMenuItemPrice();
 	}
-	
+
 	public static final Comparator<MenuItem> NAME_COMPARATOR = comparing(MenuItem::getMenuItemName);
 	public static final Comparator<MenuItem> PRICE_COMPARATOR = comparing(MenuItem::getMenuItemPrice);
 }
