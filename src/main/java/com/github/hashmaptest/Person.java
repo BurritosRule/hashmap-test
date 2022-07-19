@@ -3,14 +3,13 @@ package com.github.hashmaptest;
 import lombok.EqualsAndHashCode;
 import lombok.NonNull;
 
-@EqualsAndHashCode
-public class HashMapTest {
+public class Person {
 
 	private String name;
 
 	private int age;
 
-	public HashMapTest(@NonNull String name, int age) {
+	public Person(@NonNull String name, int age) {
 		
 		this.name = name;
 		this.age = age;
@@ -23,14 +22,7 @@ public class HashMapTest {
 	}
 	
 	@Override
-	public  boolean equals(Object obj) {
-		return age == ((HashMapTest)obj).age;
-	}
-	
-	private static int counter = 0;
-	
-	@Override
 	public int hashCode() {
-		return counter++;
+		return 1;
 	}
 }
