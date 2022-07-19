@@ -21,4 +21,16 @@ public class HashMapTest {
 	public String toString() {
 		return String.format("%s (age: %d)", name, age);
 	}
+	
+	@Override
+	public  boolean equals(Object obj) {
+		return age == ((HashMapTest)obj).age;
+	}
+	
+	private static int counter = 0;
+	
+	@Override
+	public int hashCode() {
+		return counter++;
+	}
 }

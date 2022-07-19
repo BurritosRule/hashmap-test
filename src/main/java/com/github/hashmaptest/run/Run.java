@@ -10,19 +10,24 @@ public class Run {
 
 	public static void main(String[] args) throws IOException {
 		HashMapTest hashmap1 = new HashMapTest("Billy", 2);
-		HashMapTest hashmap2 = new HashMapTest("Bob", 65);
-		HashMapTest hashmap3 = new HashMapTest("Jimmy", 19);
+		HashMapTest hashmap2 = new HashMapTest("Bob", 2);
+		HashMapTest hashmap3 = new HashMapTest("Jimmy", 2);
 
-		HashMap<Integer, HashMapTest> people = new HashMap<>();
-		people.put(1, hashmap1);
-		people.put(2, hashmap2);
-		people.put(3, hashmap3);
+		HashMap<HashMapTest, Integer> people = new HashMap<>();
+		people.put(hashmap1, 1);
+		people.put(hashmap2, 2);
+		people.put(hashmap3, 3);
 
 		System.out.print("\nEntries: ");
-		for (Entry<Integer, HashMapTest> entry : people.entrySet()) {
+		for (Entry<HashMapTest, Integer> entry : people.entrySet()) {
 			System.out.print(entry);
 			System.out.print(", ");
 		}
+		System.out.println();
+		
+		System.out.println(people.get(hashmap1));
+		System.out.println(people.get(hashmap2));
+		System.out.println(people.get(hashmap3));
 
 	}
 }
